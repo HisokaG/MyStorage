@@ -1,0 +1,108 @@
+/*
+java整型数组的一些方法
+*/
+/**
+对整型数组的常用操作
+@author 张静
+@version 0.0
+*/
+public class ArrayFunc
+{
+	/**
+	将构造函数私有化
+	可以实现不让其建立对象，只用类名调用函数。
+	*/
+	private ArrayFunc(){
+
+	}
+
+	/**
+	获取整型数组中的最大值
+	@param arr	整型数组
+	@return		数组中的最大值
+	*/
+	public static int getMax(int[] arr){
+		//初始max为下标0
+		int max=0;
+		for (int i=1;i<arr.length ;i++ )
+		{
+			if (arr[i]>arr[max])
+			{
+				max=i;
+			}
+		}
+		return arr[max];
+	}
+	/**
+	获取整型数组中的最小值
+	@param arr	整型数组
+	@return		数组中的最小值
+	*/
+	public static int getMin(int[] arr){
+		int min=0;
+		for (int i=1;i<arr.length ;i++ )
+		{
+			if (arr[i]<arr[min])
+			{
+				min=i;
+			}
+		}
+		return arr[min];
+	}
+	/**
+	选择排序：将整型数组按从小到大的顺序排列
+	@param arr 整型数组
+	*/
+	public static void selectSort(int[] arr){
+
+		for (int i=0;i<arr.length-1 ;i++ )
+		{
+			for (int j=i+1;j<arr.length ;j++ )
+			{
+				if (arr[i]>arr[j])
+				{
+					exchange(arr,i,j);
+				}
+			}
+		}
+	}
+	/**
+	冒泡排序：将整型数组按从小到大的顺序排列
+	@param arr 整型数组
+	*/
+	public static void bubbleSort(int[] arr){
+		for (int i=0;i<arr.length-1;i++)
+		{
+			for (int j=0;j<arr.length-1-i ;j++ )
+			{
+				if (arr[j]>arr[j+1])
+				{
+					exchange(arr,j,j+1);
+				}
+			}
+		}
+	}
+	/**
+	交换数组中两个元素的位置
+	@param arr 整型数组
+	@param i   要进行交换的元素的下标i
+	@param j   要进行交换的元素的下标j
+	*/
+	private static void exchange(int[] arr,int i,int j){
+		int temp;
+		temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+	}
+	/**
+	打印数组
+	@param arr 整型数组
+	*/
+	public static void printArr(int[] arr){
+		for (int i=0;i<arr.length ;i++ )
+		{
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+	}
+}
